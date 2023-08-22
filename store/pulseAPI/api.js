@@ -6,6 +6,24 @@ const pulseAPI = axios.create({
 function api_docs_schema_retrieve(payload) {
   return pulseAPI.get(`/api-docs/schema/`, { params: { lang: payload.lang } })
 }
+function api_v1_location_list(payload) {
+  return pulseAPI.get(`/api/v1/location/`)
+}
+function api_v1_location_create(payload) {
+  return pulseAPI.post(`/api/v1/location/`, payload.data)
+}
+function api_v1_location_retrieve(payload) {
+  return pulseAPI.get(`/api/v1/location/${payload.id}/`)
+}
+function api_v1_location_update(payload) {
+  return pulseAPI.put(`/api/v1/location/${payload.id}/`, payload.data)
+}
+function api_v1_location_partial_update(payload) {
+  return pulseAPI.patch(`/api/v1/location/${payload.id}/`, payload.data)
+}
+function api_v1_location_destroy(payload) {
+  return pulseAPI.delete(`/api/v1/location/${payload.id}/`)
+}
 function api_v1_login_create(payload) {
   return pulseAPI.post(`/api/v1/login/`, payload.data)
 }
@@ -47,6 +65,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_location_list,
+  api_v1_location_create,
+  api_v1_location_retrieve,
+  api_v1_location_update,
+  api_v1_location_partial_update,
+  api_v1_location_destroy,
   api_v1_login_create,
   api_v1_signup_create,
   rest_auth_login_create,
