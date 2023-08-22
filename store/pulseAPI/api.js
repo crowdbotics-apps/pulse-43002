@@ -27,6 +27,30 @@ function api_v1_location_destroy(payload) {
 function api_v1_login_create(payload) {
   return pulseAPI.post(`/api/v1/login/`, payload.data)
 }
+function api_v1_notificationsetting_list(payload) {
+  return pulseAPI.get(`/api/v1/notificationsetting/`)
+}
+function api_v1_notificationsetting_create(payload) {
+  return pulseAPI.post(`/api/v1/notificationsetting/`, payload.data)
+}
+function api_v1_notificationsetting_retrieve(payload) {
+  return pulseAPI.get(`/api/v1/notificationsetting/${payload.id}/`)
+}
+function api_v1_notificationsetting_update(payload) {
+  return pulseAPI.put(
+    `/api/v1/notificationsetting/${payload.id}/`,
+    payload.data
+  )
+}
+function api_v1_notificationsetting_partial_update(payload) {
+  return pulseAPI.patch(
+    `/api/v1/notificationsetting/${payload.id}/`,
+    payload.data
+  )
+}
+function api_v1_notificationsetting_destroy(payload) {
+  return pulseAPI.delete(`/api/v1/notificationsetting/${payload.id}/`)
+}
 function api_v1_signup_create(payload) {
   return pulseAPI.post(`/api/v1/signup/`, payload.data)
 }
@@ -72,6 +96,12 @@ export const apiService = {
   api_v1_location_partial_update,
   api_v1_location_destroy,
   api_v1_login_create,
+  api_v1_notificationsetting_list,
+  api_v1_notificationsetting_create,
+  api_v1_notificationsetting_retrieve,
+  api_v1_notificationsetting_update,
+  api_v1_notificationsetting_partial_update,
+  api_v1_notificationsetting_destroy,
   api_v1_signup_create,
   rest_auth_login_create,
   rest_auth_logout_retrieve,
